@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>管理订单</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<header>
+    <div class="row">
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand logo" href="index.html">
+                            <img src="img/logo.png">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navList">
+                            <li>
+                                <a href="../usdt-qd/index.html" data-locale="daohanglan.index">首页</a>
+                            </li>
+                            <li>
+                                <a href="../usdt-qd/coinDetails.html" data-locale="daohanglan.bihangqing">OBV交易</a>
+                            </li>
+                            <li class="active">
+                                <a href="FaBiJiaoYi-Wygm.html" data-locale="daohanglan.fabijiaoyi">法币交易</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-locale="daohanglan.remenjiaoyi"
+                                   data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">热门交易
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu hotTitle">
+                                    <li>
+                                        <a href="../usdt-qd/hotTradeCharts.html"
+                                           data-locale="daohanglan.remenjiaoyiyuan">热门交易员</a>
+                                    </li>
+                                    <li>
+                                        <a href="../usdt-qd/hotTradeCharts.html?type=1"
+                                           data-locale="daohanglan.remenjiaoyipaihang">热门交易排行</a>
+                                    </li>
+                                    <li>
+                                        <a href="../usdt-qd/followProfit.html"
+                                           data-locale="daohanglan.gensuizhe">跟随者</a>
+                                    </li>
+                                    <li>
+                                        <a href="../usdt-qd/tradeEndDynamic.html"
+                                           data-locale="daohanglan.jiaoyidongtai">交易动态</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="../usdt-qd/chatRoom.html" data-locale="daohanglan.liaotianshi">聊天室</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-locale="daohanglan.xinwenkuaixun"
+                                   data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">新闻快讯
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu hotTitle">
+                                    <li>
+                                        <a href="../usdt-qd/newsPage.html?jumptype=0"
+                                           data-locale="daohanglan.xinwenzixun">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="../usdt-qd/newsPage.html?jumptype=1" data-locale="daohanglan.kuaixun">快讯报道</a>
+                                    </li>
+                                    <li>
+                                        <a href="../usdt-qd/noticePage.html" data-locale="daohanglan.gonggaotongzhi">公告通知</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" id="sub_user_info">
+                            <li class="nav-assets">
+                                <a href="user-assets.html" class="dropdown-toggle-hover"><i class="fas fa-wallet"></i><i
+                                        data-locale="daohanglan.zichan">资产</i></a>
+                                <div class="assets-pop">
+                                    <h3 data-locale="daohanglan.xianhuojiaoyi">现货交易账号</h3>
+                                    <table class="table-light" cellspacing="0" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 30%;" class="text-left" data-locale="daohanglan.bizhong">
+                                                币种
+                                            </th>
+                                            <th style="width: 30%;" data-locale="daohanglan.keyong">可用</th>
+                                            <th data-locale="daohanglan.dongjie">冻结</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="xhAssetInfo">
+                                        </tbody>
+                                    </table>
+                                    <h3 data-locale="daohanglan.fabijiaoyi">法币交易账号</h3>
+                                    <table class="table-light" cellspacing="0" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 30%;" class="text-left" data-locale="daohanglan.bizhong">
+                                                币种
+                                            </th>
+                                            <th style="width: 30%;" data-locale="daohanglan.keyong">可用</th>
+                                            <th data-locale="daohanglan.dongjie">冻结</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="assetInfo">
+                                        </tbody>
+                                    </table>
+                                    <div class="assets-pop-footer">
+                                        <a href="user-assets.html" data-locale="daohanglan.zichanguanli">资产管理</a>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="nav-order">
+                                <a href="order-list-OBV.html"><i class="fas fa-clipboard-list"></i><i
+                                        data-locale="daohanglan.dingdan">订单</i></a>
+                            </li>
+                            <li class="top_yc">
+                                <a href="../usdt-qd/login/login.html" data-locale="daohanglan.denglu">登录</a>
+                            </li>
+                            <li class="top_yc">
+                                <a href="#">|</a>
+                            </li>
+                            <li class="top_yc">
+                                <a href="../usdt-qd/login/register.html" data-locale="daohanglan.zhuce">注册</a>
+                            </li>
+                            <li class="dropdown top_yc">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <spab class="circleBtn">中文
+                                        <span class="caret"></span>
+                                    </spab>
+
+                                </a>
+                                <ul class="dropdown-menu language">
+                                    <li>
+                                        <a href="javascript:chooselanguage(1)">中文</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:chooselanguage(2)">English</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="inforBox">
+    <div class="row no-gutter">
+        <div class="container">
+            <div class="col-md-2">
+                <div class="leftsidebar_box" id="news_class_li">
+                    <dl class="menu-deal">
+                        <dt>
+                            <a href="#" data-toggle="modal" data-target="#gmModal-1"
+                               data-locale="daohanglan.OTCfabijiaoyi">OTC法币交易</a>
+                        </dt>
+                        <dd>
+                            <a href="FaBiJiaoYi-Wygm.html" data-locale="daohanglan.woyaogoumai">我要购买</a>
+                        </dd>
+                        <dd>
+                            <a href="FaBiJiaoYi-Wycs.html" data-locale="daohanglan.woyaochushou">我要出售</a>
+                        </dd>
+                    </dl>
+                    <dl class="menu-order  active">
+                        <dt data-locale="daohanglan.guanlidingdan">
+                            管理订单
+                        </dt>
+                        <dd class="Inforactive">
+                            <a href="order-manage.html" data-locale="daohanglan.dingdanxiangqing">订单详情</a>
+                        </dd>
+                        <dd>
+                            <a href="order-fbguanggao.html" data-locale="daohanglan.fabuguanggao">发布广告</a>
+                        </dd>
+                        <dd>
+                            <a href="order-guanggao.html" data-locale="daohanglan.guanggaoguanli">广告管理</a>
+                        </dd>
+                    </dl>
+                    <dl class="menu-setting">
+                        <dt data-locale="daohanglan.yonghushezhi">
+                            用户信息设置
+                        </dt>
+                        <dd>
+                            <a href="setting-shangjia.html" data-locale="daohanglan.shangjiaxinxi">商家信息</a>
+                        </dd>
+                        <dd>
+                            <a href="setting-zhifu.html" data-locale="daohanglan.zhifushezhi">支付设置</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-10">
+                <div class="contentBox">
+                    <div class="tabwrap">
+                        <ul class="nav nav-tabs order-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a onclick="xuanze(0,this)" data-locale="order.jiaoyijinxinghzong">交易进行中</a>
+                            </li>
+                            <li role="presentation">
+                                <a onclick="xuanze(1,this)" data-locale="order.jiaoyiyiwancheng">交易已完成</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="USDT-A">
+                                <div id="" class="table-responsive">
+                                    <table class="table table-hover table-striped table-dark table-order-dark"
+                                           cellspacing="0" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-left" data-locale="order.jiaoyihuoban">交易伙伴</th>
+                                            <th data-locale="order.biaohao">订单编号</th>
+                                            <th data-locale="order.dingdanleixing">订单类型</th>
+                                            <th data-locale="order.jine">金额</th>
+                                            <th data-locale="order.shulinag">数量</th>
+                                            <th data-locale="order.chuangjianshijian">创建时间</th>
+                                            <th data-locale="order.jiaoyizhuangtai">交易状态</th>
+                                            <th data-locale="order.jiaoyicaozuo">交易操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="ul_html">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- /.tabwrap -->
+
+
+                    <div class="pageBox">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination" id="tradeEndDynamic_page">
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- /.pageBox -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.container -->
+    </div>
+</div>
+
+<footer>
+    <div class="row no-gutter">
+        <div class="container">
+            <div class="footerInfor">
+                <div class="col-md-2" style="width: 20%;">
+                    <h3 data-locale="footer.obvjiaoyi">OBV交易</h3>
+                    <ul>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p1_1&less=p1_1_1" data-locale="footer.obvjiaoyi1">OBV（能量潮）</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p1_1&less=p1_1_2" data-locale="footer.obvjiaoyi2">OBV指标介绍</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p1_1&less=p1_1_3" data-locale="footer.obvjiaoyi3">OBV交易分析应用技巧</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p1_1&less=p1_1_4" data-locale="footer.obvjiaoyi4">OBV交易指标注意事项</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p1_1&less=p1_1_5" data-locale="footer.obvjiaoyi5">OBV交易（入门/高阶）</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2" style="width: 16%;">
+                    <h3 data-locale="footer.jinrongkeji">金融科技</h3>
+                    <ul>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p2_1&less=p2_1_1"
+                               data-locale="footer.jinrongkeji1">交易员体系</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p2_1&less=p2_1_2"
+                               data-locale="footer.jinrongkeji2">数据分析系统</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p2_1&less=p2_1_3"
+                               data-locale="footer.jinrongkeji3">兼容性在线交易</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p2_1&less=p2_1_4"
+                               data-locale="footer.jinrongkeji4">数据化中心社区</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2" style="width: 10%;">
+                    <h3 data-locale="footer.guanyuwomen">关于我们</h3>
+                    <ul>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p3_1&less=p3_1_1"
+                               data-locale="footer.guanyuwomen1">公司简介</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p3_1&less=p3_1_2"
+                               data-locale="footer.guanyuwomen2">平台描述</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/bottomPage.html?level=p3_1&less=p3_1_3"
+                               data-locale="footer.guanyuwomen3">优势发展</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-1" style="width: 10%;">
+                    <h3 data-locale="footer.bangzhuzhongxin">帮助中心</h3>
+                    <ul>
+                        <li>
+                            <a href="../usdt-qd/helpPage.html?level=userGuide" data-locale="footer.bangzhuzhongxin1">用户指南</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/helpPage.html?level=followStrategy"
+                               data-locale="footer.bangzhuzhongxin2">跟随策略</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/helpPage.html?level=commProblem" data-locale="footer.bangzhuzhongxin3">常见问题</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/helpPage.html?level=currencyDetails"
+                               data-locale="footer.bangzhuzhongxin4">币种详情</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-1" style="width: 10%;">
+                    <h3 data-locale="footer.wangzhantiaoyue">网站条约</h3>
+                    <ul>
+                        <li>
+                            <a href="../usdt-qd/webClause.html?level=privacyPolicy"
+                               data-locale="footer.wangzhantiaoyue1">隐私政策</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/webClause.html?level=termsService"
+                               data-locale="footer.wangzhantiaoyue2">服务条款</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/webClause.html?level=disclaimer" data-locale="footer.wangzhantiaoyue3">免责申明</a>
+                        </li>
+                        <li>
+                            <a href="../usdt-qd/webClause.html?level=codeCommunity"
+                               data-locale="footer.wangzhantiaoyue4">社区守则</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3" style="width: 30%;">
+                    <h3 data-locale="footer.lianxiwomen">联系我们</h3>
+                    <div>
+                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=834955250&site=qq&menu=yes"><img
+                                border="0" src="../usdt-qd/img/QQ.png" alt="你好，您现在可以向我直接临时会话了，更多资讯请加好友！"
+                                title="你好，您现在可以向我直接临时会话了，更多资讯请加好友！"/></a>
+                        <img src="../usdt-qd/img/email.png" onclick="emailTanChu()">
+                        <a target="_blank" href="https://weibo.com/u/6387468943"><img
+                                src="../usdt-qd/img/weibo.png"></a>
+                        <a target="_blank" href="https://twitter.com/Bcurrency1">
+                            <a target="_blank" href="https://twitter.com/Bcurrency1"> <img
+                                    src="../usdt-qd/img/twitter.png"></a>
+                        </a>
+                        <img src="../usdt-qd/img/facebook.png">
+                    </div>
+                </div>
+            </div>
+            <div class="friendship">
+                <h3>
+                    <h3 data-locale="footer.youqinglianjie"> 友情链接：</h3>
+                    <a href="https://www.feixiaohao.com" target="view_window"><img
+                            src="../usdt-qd/img/bottom-1.png"></a>
+                    <a href="https://www.bitkan.com" target="view_window"><img src="../usdt-qd/img/bottom-4.png"></a>
+                    <a href="https://www.chainfor.com" target="view_window"><img src="../usdt-qd/img/bottom-2.png"></a>
+                    <a href="https://ethfans.org" target="view_window"><img src="../usdt-qd/img/bottom-5.png"></a>
+                    <a href="https://www.aicoin.net.cn" target="view_window"><img src="../usdt-qd/img/bottom-3.png"></a>
+                    <a href="https://www.btc123.com" target="view_window"><img src="../usdt-qd/img/bottom-6.png"></a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/iCheck/js/icheck.min.js"></script>
+<script src="js/jquery.i18n.properties.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script src="whpjs/public.js"></script>
+<script src="whpjs/order-manage.js"></script>
+</body>
